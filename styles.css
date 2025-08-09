@@ -1,0 +1,220 @@
+/* === FONT IMPORTS === */
+@font-face {
+    font-family: 'Kindred';
+    src: url('fonts/kingred.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cocomat';
+    src: url('fonts/cocomat-pro-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* === VARIABLES === */
+:root {
+    --title-font: 'Kindred', serif;
+    --body-font: 'Cocomat', sans-serif;
+    --accent-color: #3B4084;
+}
+
+/* === RESET === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: #f9f9f9;
+    color: #000;
+}
+
+
+.cover img {
+    /* width: 100%;
+    height: 100%; */
+    object-fit: cover;
+    max-width: none;
+    position: absolute;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 350px 20px 50px 20px;
+}
+
+/* === HEADER === */
+header {
+    /* display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center; */
+    padding: 20px;
+    gap: 10px;
+    text-transform: uppercase;
+}
+
+
+header h1 {
+    font-family: var(--title-font);
+    color: #333;
+    font-size: 8rem;
+    /* align-self: end; */
+    font-weight: 100;
+    display: block;
+    margin-bottom: 0.1em;
+}
+
+header .sub-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 10px;
+}
+
+header h2 {
+    color: #262959;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+header .subtitle {
+    font-size: 0.9rem;
+    color: #333;
+    letter-spacing: 0.5px;
+}
+
+header .year-location {
+    justify-self: end;
+    align-self: start;
+    text-align: right;
+}
+
+header .year {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* === MENU === */
+nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    background: white;
+    border-radius: 50px;
+    padding: 10px 100px;
+    margin: 10px auto 30px auto;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+    /* font-weight: bold; */
+}
+
+/* === MAIN SECTION === */
+section {
+    /* max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 50px 20px; */
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.about img {
+    width: 100%;
+    display: block;
+}
+
+
+.about img::after {
+    content: "";
+    position: relative;
+    display: block;
+    bottom: 0;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    background: var(--accent-color);
+    z-index: -1;
+    background-attachment: fixed;
+}
+
+.about-text h2 {
+    font-family: var(--title-font);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.about-text h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.about-text p {
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+    header {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto auto;
+    }
+
+    header h1 {
+        /* grid-column: 1 / 2; */
+        font-size: 4rem;
+    }
+
+    header .year-location {
+        grid-column: 2 / 3;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+@media (max-width: 500px) {
+    /* header h1 {
+        font-size: 2rem;
+    } */
+
+    header h2 {
+        font-size: 1.5rem;
+    }
+}
